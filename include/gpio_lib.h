@@ -17,6 +17,11 @@
 #define P3                  (0x0020)
 #define P4                  (0x0021)
 
+#define MODE0                  (0b00)
+#define MODE1                  (0b01)
+#define MODE2                  (0b10)
+#define MODE3                  (0b11)
+
 #define INPUT               (0)
 #define OUTPUT              (1)
 
@@ -26,9 +31,8 @@ void pinSet(uint16_t port, uint16_t bit, bool val);
 void pinToggle(uint16_t port, uint16_t bit);
 bool pinGet(uint16_t port, uint16_t bit);
 void pinConfigInput(uint16_t port, uint16_t bit, bool pullResistor, bool pullUP, bool IES, bool IE);
-//void pinConfigOutput(uint16_t port, uint16_t bit, uint16_t val);
-void pinConfigAnalog(uint16_t port, uint16_t bit);
-void pinConfigTimer(uint16_t port, uint16_t bit);
-void pinConfigCLK(uint16_t port, uint16_t bit);
+void pinClrFlag(uint16_t port, uint16_t bit, bool IFG);
+void pinConfigOutput(uint16_t port, uint16_t bit, uint16_t val); //???
+void pinSelect(uint16_t port, uint16_t bit, uint16_t function, bool mode);
 
 #endif /* INCLUDE_GPIO_LIB_H_ */
